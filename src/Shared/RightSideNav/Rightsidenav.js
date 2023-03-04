@@ -5,10 +5,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import BrandCarousel from '../BrandCarousel/BrandCarousel';
 import { AauthContext } from '../../Pages/News/News/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useLocation } from 'react-router-dom';
 
 
 const Rightsidenav = () => {
-
+    const navigate = useLocation();
     const { providerLogin, gitHublogin } = useContext(AauthContext)
     const googleProvider = new GoogleAuthProvider()
     const handlesubmit = () => {
@@ -16,6 +17,7 @@ const Rightsidenav = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
+                navigate('/')
             })
             .catch(error => console.error(error))
     }
@@ -27,6 +29,7 @@ const Rightsidenav = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
+                navigate('/')
             })
             .catch(error => console.error(error))
     }

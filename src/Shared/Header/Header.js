@@ -60,7 +60,7 @@ const Header = () => {
                                 <Image
                                     style={{ height: '40px' }}
                                     roundedCircle
-                                    src={user?.photoURL}>
+                                    src={user?.photoURL} title="Md. Sheikh Al Nahian">
                                 </Image> :
                                 <FaUserAlt></FaUserAlt>
                             }

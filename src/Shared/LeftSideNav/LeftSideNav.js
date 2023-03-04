@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { BsSearch } from "react-icons/bs";
 
 const LeftSideNav = () => {
     const [categories, setCategories] = useState([])
@@ -12,7 +14,14 @@ const LeftSideNav = () => {
 
     return (
         <div>
-            <h3>All Category:{categories.length}</h3>
+            <InputGroup className="mb-3">
+                <InputGroup.Text id="basic-addon1"><BsSearch></BsSearch></InputGroup.Text>
+                <Form.Control
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="basic-addon1"
+                />
+            </InputGroup>
             {
                 categories.map(category => <p key={category.id}>
                     <Link to={`/category/${category.id}`}>{category.name}</Link>

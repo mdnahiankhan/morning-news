@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AauthContext } from '../../Pages/News/News/AuthProvider';
 import { toast } from 'react-hot-toast';
 const Register = () => {
     const [error, setError] = useState();
     const [accepted, setAccepted] = useState(false)
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AauthContext)
+    const { createUser, updateUserProfile } = useContext(AauthContext)
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -23,8 +24,8 @@ const Register = () => {
                 setError('');
                 form.reset();
                 hadleUpdatedProfile(name, PhotoURL);
-                handleEmailVerification();
-                toast.success('Please verify Your Email address')
+                navigate('/');
+                toast.success('Account Created Successfully.')
             })
             .catch(e => {
                 console.error(e)
@@ -40,11 +41,6 @@ const Register = () => {
             photoURL: photoURL
         }
         updateUserProfile(profile)
-            .then(() => { })
-            .catch(error => console.error(error))
-    }
-    const handleEmailVerification = () => {
-        verifyEmail()
             .then(() => { })
             .catch(error => console.error(error))
     }
