@@ -4,12 +4,12 @@ import { FaGoogle, FaGithub, FaFacebook, FaWhatsapp, FaTwitter, FaYoutube, FaLin
 import ListGroup from 'react-bootstrap/ListGroup';
 import BrandCarousel from '../BrandCarousel/BrandCarousel';
 import { AauthContext } from '../../Pages/News/News/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Rightsidenav = () => {
 
-    const { providerLogin } = useContext(AauthContext)
+    const { providerLogin, gitHublogin } = useContext(AauthContext)
     const googleProvider = new GoogleAuthProvider()
     const handlesubmit = () => {
         providerLogin(googleProvider)
@@ -20,12 +20,24 @@ const Rightsidenav = () => {
             .catch(error => console.error(error))
     }
 
+
+    const githubProvider = new GithubAuthProvider()
+    const githubHandler = () => {
+        gitHublogin(githubProvider)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
+
     return (
         <div>
             <h3>RigthSide Nav</h3>
             <ButtonGroup vertical>
                 <Button onClick={handlesubmit} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Log in With Google</Button>
-                <Button variant="outline-dark"> <FaGithub></FaGithub> Login With GitHub</Button>
+                <Button onClick={githubHandler} variant="outline-dark"> <FaGithub></FaGithub> Login With GitHub</Button>
             </ButtonGroup>
             <div className='mt-4'>
                 <h4>Find Us On</h4>

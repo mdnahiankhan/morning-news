@@ -19,7 +19,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="" variant="">
             <Container>
                 <Navbar.Brand><Link to='/'>Dragon News</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -39,11 +39,11 @@ const Header = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Nav>
+                    <Nav className='d-flex gap-3'>
                         <>
                             {user?.uid ?
                                 <>
-                                    <span className='text-white'>{user?.displayName}</span>
+                                    <span className='text-black'>{user?.displayName}</span>
                                     <Button variant='light' onClick={handleError}>Log Out</Button>
                                 </>
                                 :
