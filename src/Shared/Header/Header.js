@@ -8,6 +8,8 @@ import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AauthContext } from '../../Pages/News/News/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import "../../Pages/Style/style.css"
+
 
 const Header = () => {
     const { user, logout } = useContext(AauthContext);
@@ -19,9 +21,9 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="" variant="">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="" className='sticky-top'>
             <Container>
-                <Navbar.Brand><Link to='/'>Dragon News</Link></Navbar.Brand>
+                <Navbar.Brand><Link to='/' bg="light">Morning News</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <p><small>All Copyright should be @Nahian</small></p>
+        <div className='text-center'>
+            <p><small >All Copyright should be @Nahian</small></p>
         </div>
     );
 };
