@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="" className='sticky-top'>
             <Container>
-                <Navbar.Brand><Link to='/' bg="light">Morning News</Link></Navbar.Brand>
+                <Navbar.Brand><Link className='btn btn-light' to='/' bg="light">Morning News</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -50,8 +50,8 @@ const Header = () => {
                                 </>
                                 :
                                 <>
-                                    <Link to='/login'>Login</Link>
-                                    <Link to='/register'>Register</Link>
+                                    <Link to='/login' className='btn btn-danger'>Login</Link>
+                                    <Link className='btn btn-info' to='/register'>Register</Link>
                                 </>
                             }
                         </>
@@ -60,7 +60,7 @@ const Header = () => {
                                 <Image
                                     style={{ height: '40px' }}
                                     roundedCircle
-                                    src={user?.photoURL} title="Md. Sheikh Al Nahian">
+                                    src={user?.photoURL} title={user?.displayName}>
                                 </Image> :
                                 <FaUserAlt></FaUserAlt>
                             }

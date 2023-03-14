@@ -24,7 +24,7 @@ const LeftSideNav = () => {
             </InputGroup>
             {
                 categories.map(category => <p key={category.id}>
-                    <Link to={`/category/${category.id}`}>{category.name}</Link>
+                    <Link className='btn btn-light' to={`/category/${category.id}`}>{category.name}</Link>
                 </p>)
             }
         </div>
